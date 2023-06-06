@@ -17,4 +17,9 @@ pipeline {
           }
         }
       }
-    } 
+    post {
+      success {
+        echo 'Pipeline has been completed'
+      }
+    }
+   } 
