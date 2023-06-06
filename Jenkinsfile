@@ -15,11 +15,15 @@ pipeline {
         steps {
           ech 'Deploying Stage'
           }
+        post {
+          failure {
+          echo 'Deploying Stage has failed'
+          }
         }
-      }
+       }
     post {
       failure {
-        echo 'Pipeline has been completed'
+        echo 'Pipeline has been completed but with failure'
       }
     }
    } 
