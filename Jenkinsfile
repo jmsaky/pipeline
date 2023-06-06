@@ -26,4 +26,5 @@ pipeline {
         echo 'Pipeline has been completed but with failure'
       }
     }
-   } 
+   }
+ }
