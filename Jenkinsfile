@@ -21,5 +21,10 @@ pipeline {
           }
         }
       }
+      post {
+        failure {
+          echo 'Pipeline has been complimented but with errors'
+        }
+      }
    }
  }
