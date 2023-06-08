@@ -20,6 +20,7 @@ pipeline {
 		   }
 		   steps {
                      sh 'docker login -u jmsaky -p $PASSWORD'
+		     sh 'docker rm -f joseph'  
 		     sh 'docker run -dit --name joseph jmsaky/pipeimage -p 80:80'
 		     sh 'curl http://localhost:80'
 		   }              
