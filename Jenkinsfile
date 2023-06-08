@@ -22,8 +22,16 @@ pipeline {
                      sh 'docker login -u jmsaky -p $PASSWORD'
 		     sh 'docker rm -f joseph'  
 		     sh 'docker run -dit --name joseph jmsaky/pipeimage -p 80:80'
-		     sh 'curl http://localhost:80'
+		     sh 'curl http://172.17.0.2:80'
 		   }              
           }
+	 stage('App checking') {
+	     agent {
+		   label 'deploy'
+		   }
+		   steps {
+                     sh 'curl http://172.17.0.2:80'
+		   }              
+          }   
          }
         }
