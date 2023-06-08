@@ -21,7 +21,7 @@ pipeline {
 		   steps {
                      sh 'docker login -u jmsaky -p $PASSWORD'
 		     sh 'docker rm -f joseph'  
-		     sh 'docker run -dit --name joseph jmsaky/pipeimage -p 80:80'
+		     sh 'docker run -dit --name joseph -p 80:80 jmsaky/pipeimage'
 		    
 		   }              
           }
@@ -30,7 +30,7 @@ pipeline {
 		   label 'deploy'
 		   }
 		   steps {
-                     sh 'curl http://172.17.0.2:80'
+                     sh 'curl http://localhost'
 		   }              
           }   
          }
